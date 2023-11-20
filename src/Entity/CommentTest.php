@@ -33,9 +33,23 @@ class CommentTest
      * @ORM\Column(type="decimal", scale=2)
      */
     private $price;
+    public function getPrice(){
+        return $this->price;
+    }
+
+    public function setPrice($value){
+        $this->price = $value;
+    }
 
     /**
      * @ORM\Column(type="text")
      */
     private $description;
+    public function getDescription(){
+        return $this->description;
+    }
+
+    public function setDescription($value){
+        $this->description = $value;
+    }
 }

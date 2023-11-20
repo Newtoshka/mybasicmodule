@@ -16,8 +16,8 @@ class CommentController extends FrameworkBundleAdminController
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDocrine() -> getManager();
-
+            $em = $this->getDoctrine()->getManager();
+            
             $commentTest = new CommentTest();
 
             $commentTest->setName('The name');
