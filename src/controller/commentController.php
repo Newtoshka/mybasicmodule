@@ -2,6 +2,7 @@
 
 namespace Mybasicmodule\Controller;
 
+use Mybasicmodule\Entity\CommentTest;
 use Mybasicmodule\Form\CommentType;
 use PrestaShopBundle\Controller\Admin\FrameworkBundleAdminController;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -14,7 +15,19 @@ class CommentController extends FrameworkBundleAdminController
         
         $form->handleRequest($request);
         
-        if ($form->isSubmitted() && $form->isValid()) { 
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDocrine() -> getManager();
+
+            $commentTest = new CommentTest();
+
+            $commentTest->setName('The name');
+            $commentTest->setDescription('The name');
+            $commentTest->setPrice(99);
+
+            //persist the data
+            $em->persist($commentTest);
+            $em->flush();
+
             dump($form->getData());
         }
 

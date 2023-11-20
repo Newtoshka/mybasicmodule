@@ -21,6 +21,13 @@ class CommentTest
      * @ORM\Column(type="string", length=100)
      */
     private $name;
+    public function getName(){
+        return $this->name;
+    }
+
+    public function setName($value){
+        $this->name = $value;
+    }
 
     /**
      * @ORM\Column(type="decimal", scale=2)
