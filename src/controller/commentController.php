@@ -21,7 +21,7 @@ class CommentController extends FrameworkBundleAdminController
             $commentTest = new CommentTest();
 
             $commentTest->setName('The name');
-            $commentTest->setDescription('The name');
+            $commentTest->setDescription('The description');
             $commentTest->setPrice(99);
 
             //persist the data
