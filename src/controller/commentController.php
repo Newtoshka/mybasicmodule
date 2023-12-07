@@ -27,7 +27,18 @@ class CommentController extends FrameworkBundleAdminController
             //persist the data
             $em->persist($commentTest);
             $em->flush();
-
+            $this->addFlash(
+               'success',
+               'success message'
+            );
+            $this->addFlash(
+                'error',
+                'error message'
+            );
+            $this->addFlash(
+                'error500',
+                '500 error message'
+            );
         }
 
         return $this -> render(
