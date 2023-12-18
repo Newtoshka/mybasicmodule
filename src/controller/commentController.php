@@ -5,9 +5,9 @@ namespace Mybasicmodule\Controller;
 use Mybasicmodule\Entity\CommentTest;
 use Mybasicmodule\Form\CommentType;
 use PrestaShopBundle\Controller\Admin\FrameworkBundleAdminController;
-use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class CommentController extends FrameworkBundleAdminController
 {
@@ -52,6 +52,15 @@ class CommentController extends FrameworkBundleAdminController
     }
 
     public function listAction(){
-        return new Response('Hello from the list');
+        $em = $this->getDoctrine()->getManager();
+        $data = $em -> getRepository(CommentTest::class)->findAll();
+        // $form = $this -> createForm(CommentType::class, $data);
+
+        return $this -> render(
+            "@Modules/mybasicmodule/views/templates/admin/listening.html.twig",
+            [
+                "data" => $data
+            ]
+        );
     }
 }
