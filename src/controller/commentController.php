@@ -5,6 +5,7 @@ namespace Mybasicmodule\Controller;
 use Mybasicmodule\Entity\CommentTest;
 use Mybasicmodule\Form\CommentType;
 use PrestaShopBundle\Controller\Admin\FrameworkBundleAdminController;
+use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -48,5 +49,9 @@ class CommentController extends FrameworkBundleAdminController
                 "form" => $form -> createView(),
             ]
         );
+    }
+
+    public function listAction(){
+        return new Response('Hello from the list');
     }
 }
